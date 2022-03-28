@@ -15,7 +15,7 @@ pipeline {
       steps {
           script {			
            sh "echo 'hola mundo'"
-           sh "docker build avudoyra/cicdimage ."
+           sh "docker build -f avudoyra/cicdimage ."
            sh "docker images"
         }
       }
