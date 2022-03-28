@@ -14,11 +14,14 @@ pipeline {
      
       steps {
           script {			
-           sh "echo 'hola mundo'"
-           sh "pwd"
-           sh "cd /home/avudoyra/web-app"
-           sh "docker build -t imagecicd ."
-           sh "docker images"
+           sh '''
+           echo 'hola mundo'
+           pwd
+           sudo su - jenkins
+           cd /home/avudoyra/web-app
+           docker build -t imagecicd .
+           docker images
+           '''
         }
       }
     }
