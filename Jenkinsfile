@@ -17,8 +17,7 @@ pipeline {
            sh '''
            echo 'hola mundo'
            pwd
-           sudo su -S jenkins
-           cd /home/avudoyra/web-app
+           cd /home/ubuntu/web-app
            docker build -t imagecicd .
            docker images
            '''
