@@ -10,11 +10,13 @@ pipeline {
   }
   stages {
 
- stage("paso 1"){
+ stage("Iniciar y correr"){
      
       steps {
           script {			
            sh "echo 'hola mundo'"
+           sh "docker build avudoyra/cicdimage ."
+           sh "docker images"
         }
       }
     }
