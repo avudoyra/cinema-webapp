@@ -16,8 +16,8 @@ pipeline {
           script {			
            sh "echo 'hola mundo'"
            sh "pwd"
-           sh "cd ~/"
-           sh "docker build -f cicdimage ."
+           sh "cd /home/avudoyra/web-app"
+           sh "docker build -t imagecicd ."
            sh "docker images"
         }
       }
