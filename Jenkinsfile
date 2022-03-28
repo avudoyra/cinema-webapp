@@ -18,6 +18,7 @@ pipeline {
            echo 'hola mundo'
            pwd
            cd /home/ubuntu/web-app
+           pwd
            docker build -t imagecicd .
            docker images
            '''
