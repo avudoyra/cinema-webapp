@@ -10,7 +10,7 @@ pipeline {
   }
   stages {
 
- stage("Borrar app anterior, clonar los nuevos archivos y construir una imagen de docker nueva"){
+ stage("Iniciar con el pipeline y ver en que directorio estamos"){
      
       steps {
           script {			
@@ -19,6 +19,10 @@ pipeline {
            pwd
            '''
           }
+      }
+    }
+ stage("Borrar el codigo anterior, clonar el nuevo y construir una nueva imagen"){
+      steps {
           dir('web-app'){
             deleteDir()
           }
@@ -34,6 +38,10 @@ pipeline {
             docker images
             '''
           }
+     }
+  }
+ stage("Guardar la imagen creada en el repositorio de ECR"){
+      steps {
           script {
             sh '''
             aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 435053451664.dkr.ecr.ca-central-1.amazonaws.com
@@ -41,12 +49,10 @@ pipeline {
             docker push 435053451664.dkr.ecr.ca-central-1.amazonaws.com/demo-web-app:latest
             '''
           }
-      }
-    }
+     }
   }
   post {
       always {          
-          deleteDir()
            sh "echo 'Esto siempre se reproduce'"
       }
       success {
