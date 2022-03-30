@@ -17,14 +17,15 @@ pipeline {
            sh '''
            echo 'Vamos a iniciar con esto!!'
            pwd
-           cd /home/ubuntu
            '''
           }
-          dir('web-app'){
+          dir('/home/ubuntu/web-app'){
             deleteDir()
           }
           script {
             sh '''
+            pwd
+            cd /home/ubuntu
             mkdir web-app
             cd web-app
             git clone https://github.com/avudoyra/cinema-webapp.git
