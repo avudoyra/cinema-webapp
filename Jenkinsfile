@@ -51,6 +51,7 @@ pipeline {
           }
      }
   }
+}
  post {
      always {          
           sh "echo 'Esto siempre se reproduce'"
@@ -64,5 +65,4 @@ pipeline {
       }
       
     }
-  }
 }  
