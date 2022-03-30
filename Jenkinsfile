@@ -18,16 +18,22 @@ pipeline {
            echo 'Vamos a iniciar con esto!!'
            pwd
            cd /home/ubuntu
-           rm -dr web-app
-           mkdir web-app
-           cd web-app
-           git clone https://github.com/avudoyra/cinema-webapp.git
-           pwd
-           ls
-           docker build -t .
-           docker images
            '''
-        }
+          }
+          dir('web-app'){
+            deleteDir()
+          }
+          script {
+            sh '''
+            mkdir web-app
+            cd web-app
+            git clone https://github.com/avudoyra/cinema-webapp.git
+            pwd
+            ls
+            docker build -t .
+            docker images
+            '''
+          }
       }
     }
   }
