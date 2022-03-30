@@ -27,6 +27,7 @@ pipeline {
             mkdir web-app
             cd web-app
             git clone https://github.com/avudoyra/cinema-webapp.git
+            cd cinema-webapp
             pwd
             ls
             docker build -t .
