@@ -30,7 +30,7 @@ pipeline {
             cd cinema-webapp
             pwd
             ls
-            docker build -t .
+            docker build .
             docker images
             '''
           }
