@@ -51,18 +51,18 @@ pipeline {
           }
      }
   }
-  post {
-      always {          
-           sh "echo 'Esto siempre se reproduce'"
+ post {
+     always {          
+          sh "echo 'Esto siempre se reproduce'"
       }
-      success {
+     success {
             sh "echo 'Todo salio con exito'"
         }
 
-      failure {
+     failure {
             sh "echo 'El pipeline fallo'"
       }
       
+    }
   }
-}
 }  
