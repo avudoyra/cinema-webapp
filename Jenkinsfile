@@ -15,11 +15,16 @@ pipeline {
       steps {
           script {			
            sh '''
-           echo 'hola mundo'
+           echo 'Vamos a iniciar con esto!!'
            pwd
-           cd /home/ubuntu/web-app
+           cd /home/ubuntu
+           rm -dr web-app
+           mkdir web-app
+           cd web-app
+           git clone https://github.com/avudoyra/cinema-webapp.git
            pwd
-           docker build -t imagecicd .
+           ls
+           docker build -t .
            docker images
            '''
         }
