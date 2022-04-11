@@ -1,5 +1,5 @@
 {
-    "family": "sample-fargate-vud", 
+    "family": "fargate-vud", 
     "networkMode": "awsvpc", 
     "containerDefinitions": [
         {
