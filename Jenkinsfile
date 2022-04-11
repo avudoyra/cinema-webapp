@@ -44,9 +44,9 @@ pipeline {
       steps {
           script {
             sh '''
-            aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 435053451664.dkr.ecr.ca-central-1.amazonaws.com
-            docker tag demoweb:latest 435053451664.dkr.ecr.ca-central-1.amazonaws.com/demo-web-app:latest
-            docker push 435053451664.dkr.ecr.ca-central-1.amazonaws.com/demo-web-app:latest
+            aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/d9z3m8e7
+            docker tag demoweb:latest public.ecr.aws/d9z3m8e7/demo-web-app:latest
+            docker push public.ecr.aws/d9z3m8e7/demo-web-app:latest
             '''
           }
      }
@@ -58,7 +58,7 @@ pipeline {
             aws ecs create-cluster --cluster-name fargate-cluster
             aws ecs register-task-definition --cli-input-json file://fargate-task.json
             aws ecs list-task-definitions
-            aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-abcd1234],securityGroups=[sg-abcd1234],assignPublicIp=ENABLED}"
+            aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[	subnet-02788912cab17b0ab],securityGroups=[sg-0b04d4c180e08a75f],assignPublicIp=ENABLED}"
             aws ecs list-services --cluster fargate-cluster
             '''
           }
