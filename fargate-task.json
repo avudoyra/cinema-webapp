@@ -4,7 +4,7 @@
     "containerDefinitions": [
         {
             "name": "fargate-app", 
-            "image": "public.ecr.aws/docker/library/httpd:latest", 
+            "image": "435053451664.dkr.ecr.ca-central-1.amazonaws.com/demo-web-app:latest", 
             "portMappings": [
                 {
                     "containerPort": 80, 
