@@ -1,9 +1,9 @@
 {
-    "family": "fargate-vud", 
+    "family": "new-fargate-vud", 
     "networkMode": "awsvpc", 
     "containerDefinitions": [
         {
-            "name": "fargate-app", 
+            "name": "new-fargate-app", 
             "image": "public.ecr.aws/d9z3m8e7/demo-web-app:latest", 
             "portMappings": [
                 {
