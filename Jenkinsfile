@@ -56,7 +56,7 @@ pipeline {
           script {
             sh '''
             aws ecs create-cluster --cluster-name fargate-cluster
-            aws ecs register-task-definition --cli-input-json file://var/lib/jenkins/workspace/cicd-beto_main/web-app/cinema-webapp/fargate-task.json
+            aws ecs register-task-definition --cli-input-json file://fargate-task.json
             aws ecs list-task-definitions
             aws ecs create-service --cluster fargate-cluster --service-name fargate-service --task-definition sample-fargate:1 --desired-count 1 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-abcd1234],securityGroups=[sg-abcd1234],assignPublicIp=ENABLED}"
             aws ecs list-services --cluster fargate-cluster
